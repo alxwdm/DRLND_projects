@@ -4,7 +4,7 @@ Udacity Deep Reinforcement Learning Nanodegree - Project Navigation
 # Project Details
 
 <p align="center">
-<img src="https://github.com/alxwdm/DRLND_navigation/blob/master/pics/banana.gif" width="500">
+<img src="https://github.com/alxwdm/DRLND_projects/blob/master/p1_navigation/pics/banana.gif" width="500">
 </p>
 
 This project is part of the Udacity Deep Reinforcement Learning Nanodegree. The task is to train an Agent to navigate in a large, square-shaped world and collect yellow bananas while avoiding blue bananas.
