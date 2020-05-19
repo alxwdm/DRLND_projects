@@ -16,7 +16,7 @@ Further improvements to the vanilla DQN algorithm have been discovered, such as:
 In this project, I have implemented a Double-DQN with Prioritized Experience Replay. The task is solved after about 500 episodes. Here is the corresponding learning curve:
 
 <p align="center">
-<img src="https://github.com/alxwdm/DRLND_projects/blob/master/p1_navigation/pics/score.png" width="500">
+<img src="https://github.com/alxwdm/DRLND_projects/blob/master/p1_navigation/pics/score.png" width="350">
 </p>
 
 The architecture and weights of a trained agent can be found in the `checkpoint.pth` file in this repository. With the `agent.load_checkpoint()` method, the Q-Network can be loaded to verify the training success. Here are the scores of a trained agent:
@@ -31,20 +31,20 @@ The DQN model architecture consists of three fully-connected hidden layers of si
 
 Here is a list of the additional Hyperparameters that I have chosen:
 
-`
-BUFFER_SIZE = int(1e5)	# replay buffer size
-BATCH_SIZE = 64           	# minibatch size
-GAMMA = 0.99                	# discount factor
-ALPHA = 0.6             	# PER alpha rate
-INIT_BETA = 0.4         	# PER initial beta rate
-BETA_INC = 0.0001       	# PER beta increment per step
-MIN_PRIO = 1e-6         	# PER minimum priority for experience
-TAU = 1e-3              		# for soft update of target parameters
-LR = 5e-4               		# learning rate 
-UPDATE_EVERY = 4       	# how often to update the network
-USE_DDQN = True         	# whether to use Double-DQN 
-USE_PER = True          	# whether to use prioritized experience replay
-`
+```
+BUFFER_SIZE = int(1e5)  # replay buffer size
+BATCH_SIZE = 64         # minibatch size
+GAMMA = 0.99            # discount factor
+ALPHA = 0.6             # PER alpha rate
+INIT_BETA = 0.4         # PER initial beta rate
+BETA_INC = 1e-4         # PER beta increment per step
+MIN_PRIO = 1e-6         # PER minimum priority for experience
+TAU = 1e-3              # for soft update of target parameters
+LR = 5e-4               # learning rate 
+UPDATE_EVERY = 4        # how often to update the network
+USE_DDQN = True         # whether to use Double-DQN 
+USE_PER = True          # whether to use prioritized experience replay
+```
 
 # Ideas for Future Work
 
