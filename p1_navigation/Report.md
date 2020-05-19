@@ -16,7 +16,7 @@ Further improvements to the vanilla DQN algorithm have been discovered, such as:
 In this project, I have implemented a Double-DQN with Prioritized Experience Replay. The task is solved after about 500 episodes. Here is the corresponding learning curve:
 
 <p align="center">
-<img src="https://github.com/alxwdm/DRLND_projects/blob/master/p1_navigation/pics/score.png" width="500">
+<img src="https://github.com/alxwdm/DRLND_projects/blob/master/p1_navigation/pics/score.png" width="300">
 </p>
 
 # Neural Network Architecture and Hyperparameters
@@ -25,7 +25,7 @@ The DQN model architecture consists of three fully-connected hidden layers of si
 
 Here is a list of the additional Hyperparameters that I have chosen:
 
-`
+```
 BUFFER_SIZE = int(1e5)	# replay buffer size
 BATCH_SIZE = 64           	# minibatch size
 GAMMA = 0.99                	# discount factor
@@ -38,7 +38,7 @@ LR = 5e-4               		# learning rate
 UPDATE_EVERY = 4       	# how often to update the network
 USE_DDQN = True         	# whether to use Double-DQN 
 USE_PER = True          	# whether to use prioritized experience replay
-`
+```
 
 # Ideas for Future Work
 
