@@ -35,6 +35,8 @@ Udacity has built a modified version of the Unity ML-agents environment for this
 
 Detailed instructions on how to setup a local python environment for this project can be found [here](https://github.com/udacity/deep-reinforcement-learning#dependencies). It is important to notice that the version of Unity ML-agents needs to be **0.4.0** in order to work with the provided environment.
 
+Also, make sure to include the python folder from the [DRLND Repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/python) to import further dependencies.
+
 # Instructions
 
 If you want to train an agent from scratch, make sure you have correctly setup the python environment as described above and run all sections in the provided Jupyter notebook. To verify the training success of the pre-trained agent, clone the repository (including checkpoint.pth) and run section 5 of the notebook.
