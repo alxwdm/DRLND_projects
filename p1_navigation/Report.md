@@ -19,6 +19,12 @@ In this project, I have implemented a Double-DQN with Prioritized Experience Rep
 <img src="https://github.com/alxwdm/DRLND_projects/blob/master/p1_navigation/pics/score.png" width="500">
 </p>
 
+The architecture and weights of a trained agent can be found in the `checkpoint.pth` file in this repository. With the `agent.load_checkpoint()` method, the Q-Network can be loaded to verify the training success. Here are the scores of a trained agent:
+
+<p align="center">
+<img src="https://github.com/alxwdm/DRLND_projects/blob/master/p1_navigation/pics/trained.png" width="500">
+</p>
+
 # Neural Network Architecture and Hyperparameters
 
 The DQN model architecture consists of three fully-connected hidden layers of size `[128, 128, 128]` with ReLU activation.
