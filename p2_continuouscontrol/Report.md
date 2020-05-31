@@ -10,10 +10,10 @@ Policy-based RL approaches try to learn the policy directly, i.e. without learni
 It turns out that even better results can be achieved when combining both value- and policy-based learning. This lead to the development of so called **actor-critic methods**, where the actor learns how to act (i.e. policy-based), and a critic learns how to estimate the current situation (i.e. value-based). The algorithm that I have implemented in this project is [DDPG](https://arxiv.org/abs/1509.02971). It is an off-policy approach that uses a lot of tricks from DQN, such as a replay buffer and fixed Q-targets. Other commonly used actor-critic algorithms such as A3C and A2C are on-policy and replace the replay buffer with parallel training. 
 
 DDPG works as follows: 
-* After initializing the critic `Q(s,a|th_c)` and the actor `?(s,a|th_a)`, the agent collects experience tuples `(s, a, r, s')` from interacting with the environment. 
+* After initializing the critic `Q(s,a|th_c)` and the actor `mu(s,a|th_a)`, the agent collects experience tuples `(s, a, r, s')` from interacting with the environment. 
 * When enough samples are available, a mini-batch of experiences is drawn from the replay buffer. 
-* The TD-estimate `r + gamma * Q(s', a|th_c)` is used to train the critic.
-* The sampled policy-gradient is used to train the actor, with the advantage (calculated using the critic) `r + gamma * (V(s'|th_c) - V(s|th_c))` being the baseline.
+* The TD-estimate `r + gamma * Q(s',a|th_c)` is used to train the critic (using fixed Q-targets).
+* The sampled policy-gradient is used to train the actor, with the advantage (calculated by the critic using the actions of the actor) `r + gamma * (V(s'|th_c) - V(s|th_c))` being the baseline.
 * More experiences are collected and the fixed target networks are (soft-)updated. The exploration is controlled by adding noise to the actor with a so called Ornstein-Uhlenbeck process.
 
 # Neural Network Architecture and Hyperparameters
