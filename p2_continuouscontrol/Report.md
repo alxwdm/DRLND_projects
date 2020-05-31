@@ -13,25 +13,33 @@ DDPG works as follows:
 * After initializing the critic `Q(s,a|th_c)` and the actor `mu(s,a|th_a)`, the agent collects experience tuples `(s, a, r, s')` from interacting with the environment. 
 * When enough samples are available, a mini-batch of experiences is drawn from the replay buffer. 
 * The TD-estimate `r + gamma * Q(s',a|th_c)` is used to train the critic (using fixed Q-targets).
-* The sampled policy-gradient is used to train the actor, with the advantage (calculated by the critic using the actions of the actor) `r + gamma * (V(s'|th_c) - V(s|th_c))` being the baseline.
+* The sampled policy-gradient is used to train the actor, where the loss of the actor is the state-value calculated by the critic with the actions taken by the actor: `actor_loss = -critic_local(states, actions_pred).mean()`.
 * More experiences are collected and the fixed target networks are (soft-)updated. The exploration is controlled by adding noise to the actor with a so called Ornstein-Uhlenbeck process.
 
 # Neural Network Architecture and Hyperparameters
 
-**TODO**
+Both the actor and the critic use a neural network consisting two hidden layers with the same number of units and batch normalization applied after the first hidden layer. The actor's architecture is straight forward, with a `tanh` activation function on the output layer to map the outputs to the action space range `[-1, 1]`. The critic needs to output a state-value for a given action. Thus it receives the actions from the actor in its forward pass and concatenates them after the first hidden layer. 
 
+One particular challenge of this project (and of RL in general) is keeping the learning stable while still being data-efficient. Both can be achieved by tuning the learning frequency or update-ratio, respectively. The learning is stable yet reasonably fast when performing 10 learning steps at every 20 timesteps.
+
+Here is a complete list of the hyperparameter setting:
+ 
 ```
+# -- Replay Buffer ------
 BUFFER_SIZE = int(1e6)  # replay buffer size
 BATCH_SIZE = 128        # minibatch size
-GAMMA = 0.99            # discount factor
+# -- Update Settings ---
 TAU = 1e-3              # for soft update of target parameters
-LR_ACTOR = 2e-3         # learning rate of the actor 
-LR_CRITIC = 2e-3        # learning rate of the critic
-WEIGHT_DECAY = 0        # L2 weight decay
-LEARN_EVERY = 2         # learn every x timesteps
+LEARN_EVERY = 20        # learn every x timesteps
 LEARN_STEP_N = 10       # learn x samples for every learning step
-FC_UNITS_1 = 128        # Units in first hidden layer (both actor and critic)
-FC_UNITS_2 = 128        # Units in second hidden layer (both actor and critic)
+# -- Model --------------
+GAMMA = 0.99            # discount factor
+LR_ACTOR = 1e-3         # learning rate of the actor 
+LR_CRITIC = 1e-3        # learning rate of the critic
+WEIGHT_DECAY = 0        # L2 weight decay
+FC_UNITS_1 = 128        # Units of first hidden layer (both actor and critic)
+FC_UNITS_2 = 128        # Units of second hidden layer (both actor and critic)
+# -- Noise Settings -----
 EPSILON = 1.0           # noise factor 
 EPSILON_DECAY = 0.999   # noise decay rate 
 NOISE_SIGMA = 0.1       # sigma parameter for Ornstein-Uhlenbeck noise
