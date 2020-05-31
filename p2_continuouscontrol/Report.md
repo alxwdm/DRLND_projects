@@ -21,7 +21,21 @@ DDPG works as follows:
 **TODO**
 
 ```
-...
+BUFFER_SIZE = int(1e6)  # replay buffer size
+BATCH_SIZE = 128        # minibatch size
+GAMMA = 0.99            # discount factor
+TAU = 1e-3              # for soft update of target parameters
+LR_ACTOR = 2e-3         # learning rate of the actor 
+LR_CRITIC = 2e-3        # learning rate of the critic
+WEIGHT_DECAY = 0        # L2 weight decay
+LEARN_EVERY = 2         # learn every x timesteps
+LEARN_STEP_N = 10       # learn x samples for every learning step
+FC_UNITS_1 = 128        # Units in first hidden layer (both actor and critic)
+FC_UNITS_2 = 128        # Units in second hidden layer (both actor and critic)
+EPSILON = 1.0           # noise factor 
+EPSILON_DECAY = 0.999   # noise decay rate 
+NOISE_SIGMA = 0.1       # sigma parameter for Ornstein-Uhlenbeck noise
+NOISE_THETA = 0.15      # theta parameter for Ornstein-Uhlenbeck noise
 ```
 
 # Ideas for Future Work
