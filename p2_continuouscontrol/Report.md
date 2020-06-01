@@ -48,4 +48,4 @@ NOISE_THETA = 0.15      # theta parameter for Ornstein-Uhlenbeck noise
 
 # Ideas for Future Work
 
-**TODO**
+As the DDPG algorithm is used in Udacity's benchmark implementation, it was the most promising actor-critic agent to start with for solving the environment. It would be interesting to see whether other algorithms such as [A3C](https://arxiv.org/pdf/1602.01783.pdf) show similar performance. Also, future work could include more recent algorithms like [D4PO](https://arxiv.org/pdf/1804.08617.pdf). In addition, this DDPG implementation may be improved by using prioritized experience replay ([PER](https://arxiv.org/pdf/1511.05952.pdf)), i.e. sampling "important" experiences from the replay buffer more frequently.
