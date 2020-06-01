@@ -13,7 +13,7 @@ DDPG works as follows:
 * After initializing the critic `Q(s,a|th_c)` and the actor `mu(s,a|th_a)`, the agent collects experience tuples `(s, a, r, s')` from interacting with the environment. 
 * When enough samples are available, a mini-batch of experiences is drawn from the replay buffer. 
 * The TD-estimate `r + gamma * Q(s',a|th_c)` is used to train the critic (using fixed Q-targets).
-* The sampled policy-gradient is used to train the actor, where the loss of the actor is the state-value calculated by the critic with the actions taken by the actor: `actor_loss = -critic_local(states, actions_pred).mean()`.
+* The sampled policy-gradient is used to train the actor, where the loss of the actor is the state-value calculated by the critic with the actions taken by the actor: `actor_loss = -critic_local(states, actions_pred).mean()`. The intuition behind this loss is that the actor takes a gradient ascent step towards higher expected return.
 * More experiences are collected and the fixed target networks are (soft-)updated. The exploration is controlled by adding noise to the actor with a so called Ornstein-Uhlenbeck process.
 
 # Neural Network Architecture and Hyperparameters
