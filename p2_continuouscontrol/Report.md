@@ -16,6 +16,12 @@ DDPG works as follows:
 * The sampled policy-gradient is used to train the actor, where the loss of the actor is the state-value calculated by the critic with the actions taken by the actor: `actor_loss = -critic_local(states, actions_pred).mean()`. The intuition behind this loss is that the actor takes a gradient ascent step towards higher expected return.
 * More experiences are collected and the fixed target networks are (soft-)updated. The exploration is controlled by adding noise to the actor with a so called Ornstein-Uhlenbeck process.
 
+I decided to train the version with **20 agents in parallel**. The following figure shows the training progress. It can be seen that after around 40 episodes, the average episode score over all 20 agents reaches the target value for the first time. After 60 episodes, even the worst agent's score within an episode (bottom of shaded area) is above the target. The moving average of 100 episodes reaches the target after 107 episodes, thus the environment is considered to be "solved in 7 episodes" (as defined by Udacity).
+
+<p align="center">
+<img src="https://github.com/alxwdm/DRLND_projects/blob/master/p2_continuouscontrol/pics/score.png" width="350">
+</p>
+
 # Neural Network Architecture and Hyperparameters
 
 Both the actor and the critic use a neural network consisting two hidden layers with the same number of units and batch normalization applied after the first hidden layer. The actor's architecture is straight forward, with a `tanh` activation function on the output layer to map the outputs to the action space range `[-1, 1]`. The critic needs to output a state-value for a given action. Thus it receives the actions from the actor in its forward pass and concatenates them after the first hidden layer. 
