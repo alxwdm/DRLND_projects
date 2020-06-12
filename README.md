@@ -18,3 +18,12 @@ In this project, the goal is to train an Agent to navigate a large, square-shape
 </p>
 
 In this project, the goal is to train an Agent with a double-jointed arm to follow along a target location. For further information, take a look at the corresponding [ReadMe](https://github.com/alxwdm/DRLND_projects/blob/master/p2_continuouscontrol/README.md) and [Report](https://github.com/alxwdm/DRLND_projects/blob/master/p2_continuouscontrol/Report.md) files.
+
+# Project 3 - Collaboration and Competition
+
+<p align="center">
+<img src="https://github.com/alxwdm/DRLND_projects/blob/master/p3_collaboration/pics/tennis.gif" width="500">
+</p>
+
+In this project, the goal is to train two Agents to play tennis with each other. For further information, take a look at the corresponding [ReadMe](https://github.com/alxwdm/DRLND_projects/blob/master/p3_collaboration/README.md) and [Report](https://github.com/alxwdm/DRLND_projects/blob/master/p3_collaboration/Report.md) files.
+
