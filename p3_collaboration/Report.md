@@ -9,7 +9,7 @@ On the other hand, a **centralized training with de-centralized execution** that
 
 In the multi-agent scenario, the critic of a single agent is augmented with information from all actors and the complete (observable) state space during training. At execution time, the actors act based on their individual observation space, without "help" from the critic. This centralized critic approach helps to stabilize learning, because the enviroment appears no longer non-stationary. Further details are described in the OpenAI research paper ["Multi Agent Actor Critic for Mixed Cooperative Competitive environments"](https://papers.nips.cc/paper/7217-multi-agent-actor-critic-for-mixed-cooperative-competitive-environments.pdf).
 
-The training success of the Agent can be seen in the following diagram:
+The training success of the Agent can be seen in the following diagram. The average over the last 100 episodes reaches the target of 0.5 after 1477 episodes, which means the environment is considered to be "solved in 1377 episodes".
 
 <p align="center">
 <img src="https://github.com/alxwdm/DRLND_projects/blob/master/p3_collaboration/pics/score.png" width="350">
