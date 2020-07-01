@@ -31,3 +31,7 @@ Udacity has provided a Unity environment, based on [Tennis](https://github.com/U
 Detailed instructions on how to setup a local python environment for this project can be found [here](https://github.com/udacity/deep-reinforcement-learning#dependencies). It is important to notice that the version of Unity ML-agents needs to be **0.4.0** in order to work with the provided environment.
 
 Also, make sure to include the python folder from the [DRLND Repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/python) to import further dependencies.
+
+# How to run the code
+
+Please refer to the [Jupyter Notebook](https://github.com/alxwdm/DRLND_projects/blob/master/p3_collaboration/Tennis.ipynb) to see how to train the Agent. You need to run every cell from section 1, 2 and 4 in order to train the Agent. Section 1 and 2 are only to prepare the environment, section 4 contains the main training code.
